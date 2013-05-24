@@ -1,0 +1,23 @@
+﻿html, body {
+    height: 100%;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -30px;
+}
+
+.logo {
+    width: 18px;
+    height: 18px;
+}
+.push {
+    height: 30px;
+}
+
+.chart {
+    height: 300px;
+    margin-top: 10px;
+}
