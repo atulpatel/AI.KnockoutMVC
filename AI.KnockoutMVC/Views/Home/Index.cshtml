@@ -1,60 +1,244 @@
-﻿<div class="row">
-    <div class="span6">
-        <div class="well well-large">
-            <h4>Non-Observable</h4>
-<pre class="alert alert-info">
-&lt;div class=&quot;bindable&quot; data-url=&quot;/api/sample&quot; &gt;
-...              
-&lt;div&gt;
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        Sample Model
+    </div>
+    <div class="panel-body">
+        <div class="col-lg-4">
+            <pre class="code">public class Contact
+{
+  public Name Name { get; set; }
+  public Address Address { get; set; }
+  public string Phone { get; set; }
+}
 </pre>
-            <div class="bindable" data-url="/api/sample">
-                <input type="text" data-bind="value:Name.FirstName" />
-                <span class="help-inline" data-bind="text:Name.FirstName"></span>
-                <br/>
-                <input type="text" data-bind="value:Name.LastName" />
-                <span class="help-inline" data-bind="text:Name.LastName"></span>
-                <br/>
-                <input type="text" data-bind="value:Address.Street" />
-                <span class="help-inline" data-bind="text:Address.Street"></span>
-                <br/>
-                <input type="text" data-bind="value:Address.City" />
-                <span class="help-inline" data-bind="text:Address.City"></span>
-                <br/>
-                <input type="text" data-bind="value:Address.State" />
-                <span class="help-inline" data-bind="text:Address.State"></span>
-                <br/>
-                <input type="text" data-bind="value:Phone" />
-                <span class="help-inline" data-bind="text:Phone"></span>
+        </div>
+
+        <div class="col-lg-4">
+            <pre class="code">public class Name
+{
+  public string FirstName { get; set; }
+  public string LastName { get; set; }
+}
+</pre>
+        </div>
+
+        <div class="col-lg-4">
+            <pre class="code">public class Address
+{
+  public string Street { get; set; }
+  public string City { get; set; }
+  public string State { get; set; }
+}
+</pre>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Non Overservable
+    </div>
+
+    <div class="panel-body">
+        <code>&lt;div class="bindable" data-url="/api/sample"&gt;...&lt;/div&gt;</code>
+        <div class="push"></div>
+        <div class="bindable col-md-12" data-url="/api/sample">
+
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Form Input
+                    </div>
+
+                    <div class="panel-body">
+                        <div role="form">
+                            <div class="form-group">
+                                <label class="control-label col-md-12">First Name <span class="code pull-right">(data-bind='Name.FirstName')</span></label>
+                                <input type="text" class="form-control col-md-12" data-bind="value: Name.FirstName">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-12">Last Name <span class="code pull-right">(data-bind='Name.LastName')</span></label>
+                                <input type="text" class="form-control" data-bind="value: Name.LastName">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-12">Street Address <span class="code pull-right">(data-bind='Address.Street')</span></label>
+                                <input type="text" class="form-control" data-bind="value: Address.Street">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-12">City <span class="code pull-right">(data-bind='Address.City')</span></label>
+                                <input type="text" class="form-control" data-bind="value: Address.City">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-12">State <span class="code pull-right">(data-bind='Address.State')</span></label>
+                                <input type="text" class="form-control" data-bind="value: Address.State">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-12">Phone <span class="code pull-right">(data-bind='Phone')</span></label>
+                                <input type="text" class="form-control" data-bind="value: Phone">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        On Input Changed
+                    </div>
+                    <div class="panel-body">
+                        <div data-bind="text: Name.FirstName">John</div>
+                        <div data-bind="text: Name.LastName">Smith</div>
+                        <div data-bind="text: Address.Street">1234 Main St</div>
+                        <div data-bind="text: Address.City">Dallas</div>
+                        <div data-bind="text: Address.State">TX</div>
+                        <div data-bind="text: Phone">555-555-5555</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Overservable
+    </div>
+
+    <div class="panel-body">
+        <p>
+            Just add the css class "observable" to the div and the model elements will be translated to ko.observable and ko.observableArray. Notice how the values change when an input value is changed.
+        </p>
+        <code>&lt;div class="bindable observable" data-url="/api/sample"&gt;...&lt;/div&gt;</code>
+        <div class="push"></div>
+        <div class="bindable observable col-md-12" data-url="/api/sample">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Form Input
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div role="form">
+                            <div class="form-group">
+                                <label class="control-label col-md-12">First Name <span class="code pull-right">(data-bind='Name().FirstName')</span></label>
+                                <input type="text" class="form-control col-md-12" data-bind="value: Name().FirstName">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-12">Last Name <span class="code pull-right">(data-bind='Name().LastName')</span></label>
+                                <input type="text" class="form-control" data-bind="value: Name().LastName">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-12">Street Address <span class="code pull-right">(data-bind='Address().Street')</span></label>
+                                <input type="text" class="form-control" data-bind="value: Address().Street">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-12">City <span class="code pull-right">(data-bind='Address().City')</span></label>
+                                <input type="text" class="form-control" data-bind="value: Address().City">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-12">State <span class="code pull-right">(data-bind='Address().State')</span></label>
+                                <input type="text" class="form-control" data-bind="value: Address().State">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-12">Phone <span class="code pull-right">(data-bind='Phone')</span></label>
+                                <input type="text" class="form-control" data-bind="value: Phone">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        On Input Changed
+                    </div>
+                    <div class="panel-body">
+                        <div data-bind="text: Name().FirstName">John</div>
+                        <div data-bind="text: Name().LastName">Smith</div>
+                        <div data-bind="text: Address().Street">1234 Main St</div>
+                        <div data-bind="text: Address().City">Dallas</div>
+                        <div data-bind="text: Address().State">TX</div>
+                        <div data-bind="text: Phone">555-555-5555</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Extend
+    </div>
+    <div class="panel-body">
+        <div class="bindable observable extend col-md-12" data-url="/api/sample" data-model="sample">
+
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Form Input
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div role="form">
+                            <div class="form-group">
+                                <label class="control-label col-md-12">First Name <span class="code pull-right">(data-bind='Name().FirstName')</span></label>
+                                <input type="text" class="form-control col-md-12" data-bind="value: Name().FirstName">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-12">Last Name <span class="code pull-right">(data-bind='Name().LastName')</span></label>
+                                <input type="text" class="form-control" data-bind="value: Name().LastName">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        On Input Changed
+                    </div>
+                    <div class="panel-body">
+                        <div data-bind="text: FullName">Smith, John</div>
+                        <div data-bind="text: Name().FirstName">John</div>
+                        <div data-bind="text: Name().LastName">Smith</div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-<div class="span6">
-    <div class="well well-large">
-        <h4>Observable</h4>
-        <pre class="alert alert-info">
-&lt;div class=&quot;bindable observable&quot; data-url=&quot;/api/sample&quot; &gt;
-...              
-&lt;div&gt;
-</pre>
-        <div class="bindable observable" data-url="/api/sample">
-            <input type="text" data-bind="value:Name().FirstName" />
-            <span class="help-inline" data-bind="text:Name().FirstName"></span>
-            <br/>
-            <input type="text" data-bind="value:Name().LastName" />
-            <span class="help-inline" data-bind="text:Name().LastName"></span>
-            <br/>
-            <input type="text" data-bind="value:Address().Street" />
-            <span class="help-inline" data-bind="text:Address().Street"></span>
-            <br/>
-            <input type="text" data-bind="value:Address().City" />
-            <span class="help-inline" data-bind="text:Address().City"></span>
-            <br/>
-            <input type="text" data-bind="value:Address().State" />
-            <span class="help-inline" data-bind="text:Address().State"></span>
-            <br/>
-            <input type="text" data-bind="value:Phone" />
-            <span class="help-inline" data-bind="text:Phone"></span>
-        </div>
-    </div>
 </div>
-</div>
+
+<button class="btn btn-primary rebind">Rebind</button>
+
+@section scripts
+{
+    <script>
+        $(function() {
+            $(".rebind").on("click", function() {
+                knockoutMvc.bind("body");
+            });
+        })
+    </script>
+}

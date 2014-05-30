@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="logo col-xs-1"></div>
+                <a class="navbar-brand" href="/Home">KnockoutMVC</a>
+            </div>
+            <div class="navbar-collapse collapse" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Samples", "Samples", "Home")</li>
+                    <li><a href="mailto:paul.kavanaugh@theaiteam.com">Contact</a></li>
+                </ul>
+
+                <a class="navbar-brand pull-right" href="http://www.theaiteam.com">Architecting Innovation LLC</a>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery",
+            "~/bundles/bootstrap",
+            "/bundles/knockoutmvc"
+            )
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>

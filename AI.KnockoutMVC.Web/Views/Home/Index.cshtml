@@ -1,0 +1,37 @@
+﻿<h3>About</h3>
+<p>
+    AI KnockoutMVC is all about quickly binding to a model sent from a web service with very little or NO javascript. This strategy fits
+    very well with a distributed architecture strategy in that each container can load a small peice of data and the web services can be
+    broken up into more specific responsibilities. We no longer feel the need to pull the full model and bind it to the entire page.
+</p>
+<p>
+    AI KnockoutMVC works with observables and non-observables by either including or not including a class attribute of "observable". The only other requirement
+    is to include a data-attribute pointing to the web service endpoint that returns a JSON object of your model. Containers can be updated or
+    added to DOM after document.ready by calling <code>knockoutMvc.bind($('[container selector]');</code>
+</p>
+<p>
+    Web service models can also be merged with existing javascript models as long as property names are the same (case insensitive). Just place
+    the javascript model inside the ViewModels folder and add it to the viewModels javascript namespace, add the css class "extend", and
+    provide a data attribute that indicates the name of the view model, for example,
+    <code>data-model='sample'</code>. The ability to merge (or extend) an existing javascript model allows us to include computed variables, events, and other
+    properties.
+</p>
+
+<h3>Where To Get It</h3>
+<ul class="list-unstyled">
+    <li>
+        <a href="https://github.com/theAIteam/AI.KnockoutMVC">https://github.com/theAIteam/AI.KnockoutMVC</a>
+    </li>
+    <li>
+        <a href="http://www.nuget.org/packages/AI.KnockoutMVC/">http://www.nuget.org/packages/AI.KnockoutMVC/</a>
+    </li>
+</ul>
+
+<h3>About Me</h3>
+<address>
+    <strong>Paul Kavanaugh</strong> <br>
+    VP Application Development <br>
+    Architecting Innovation <br>
+    <a href="mailto:paul.kavanaugh@architectinginnovation.com">paul.kavanaugh@architectinginnovation.com</a>
+</address>
+
