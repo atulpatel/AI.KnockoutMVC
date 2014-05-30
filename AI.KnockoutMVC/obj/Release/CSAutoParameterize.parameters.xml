@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-AI.KnockoutMVC-20130523154047;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-AI.KnockoutMVC-20130523154047.mdf" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="Z:\\Documents\\AI\.KnockoutMVC\\AI\.KnockoutMVC\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
-  </parameter>
-</parameters>
